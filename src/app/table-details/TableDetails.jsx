@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Request from 'superagent';
 
 
-class TableDetails extends React.Component{
+class TableDetailsComponent extends React.Component{
     constructor(props){
         super(props);
         this.state = {};
@@ -95,4 +95,4 @@ class TableDetails extends React.Component{
     }
 }
 
-export default TableDetails;
+export default TableDetailsComponent;

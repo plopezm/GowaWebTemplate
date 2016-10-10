@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TableListComponent from './table-list';
+import TableListComponent from './TableList';
 import Request from 'superagent';
 
 class HomeComponent extends React.Component{

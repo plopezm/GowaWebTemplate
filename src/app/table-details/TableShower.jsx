@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TableDetails from './TableDetails';
+import TableDetailsComponent from './TableDetails';
 
 class TableShowerComponent extends React.Component{
 
@@ -36,7 +36,7 @@ class TableShowerComponent extends React.Component{
                 <div>
                     <div className="ui massive label routing panel title">Gowa table details</div>
                     <hr/>
-                    <TableDetails tableId={this.props.params.tableId}/>
+                    <TableDetailsComponent tableId={this.props.params.tableId}/>
                 </div>
             );
         }else{

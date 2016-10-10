@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TableElementComponent from './table-item';
+import TableElementComponent from './TableElement';
 
 class TableListComponent extends React.Component{
     constructor(props) {

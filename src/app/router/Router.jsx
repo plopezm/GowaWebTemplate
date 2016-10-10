@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
+import HomeComponent from '../home/Home';
+import TableShowerComponent from '../table-details/TableShower';
 
-class TableElementComponent extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
+class RoutingComponent extends React.Component{
 
     componentWillMount() {
         // Called the first time the component is loaded right before the component is added to the page
@@ -26,19 +26,14 @@ class TableElementComponent extends React.Component {
     componentWillUnmount() {
         // Called when the component is removed
     }
-
-    render() {
+    render(){
         return (
-            <div className="four wide column">
-                <div className="ui header">
-                    <img src="/images/plugin.png"/>
-                    <div className="content">
-                        <Link to={'/show/'+this.props.table.title}>{this.props.table.title}</Link>
-                    </div>
-                </div>
-            </div>
+            <Router history={hashHistory}>
+                <Route  path="/" component={HomeComponent} />
+                <Route path="/show/:tableId" component={TableShowerComponent} />
+            </Router>
         );
     }
 }
 
-export default TableElementComponent;
+export default RoutingComponent;

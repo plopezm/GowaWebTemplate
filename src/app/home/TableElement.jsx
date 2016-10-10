@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RouterComponent from './router/Router';
+import { Link } from 'react-router';
 
+class TableElementComponent extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-export class App extends React.Component{
     componentWillMount() {
         // Called the first time the component is loaded right before the component is added to the page
     }
@@ -23,24 +26,19 @@ export class App extends React.Component{
     componentWillUnmount() {
         // Called when the component is removed
     }
-    render(){
-        return  (
-            <div>
-                <div className="ui pointing menu">
-                    <div className="item">
-                        <h3>Gowa</h3>
+
+    render() {
+        return (
+            <div className="four wide column">
+                <div className="ui header">
+                    <img src="/img/plugin.png"/>
+                    <div className="content">
+                        <Link to={'/show/'+this.props.table.title}>{this.props.table.title}</Link>
                     </div>
-                    <a className="active item">
-                        Home
-                    </a>
                 </div>
-                <div id="root" className="ui segment routing-content">
-                    <RouterComponent></RouterComponent>
-                </div>
-           </div>
+            </div>
         );
     }
 }
 
-
-ReactDOM.render(<App />, document.getElementById('app'));
+export default TableElementComponent;

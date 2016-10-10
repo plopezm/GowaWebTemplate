@@ -1,0 +1,23 @@
+#app {
+  min-height: 70vh;
+
+  .routing-content{
+    position: relative;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: 88vh;
+  }
+
+  div.routing.panel.title {
+    text-align: center;
+    margin:auto;
+    min-width: 100%;
+  }
+
+  div.routing.panel.content {
+    margin-top:15px;
+  }
+
+}
+

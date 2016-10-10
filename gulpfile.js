@@ -15,6 +15,10 @@ gulp.task('copy-images', function () {
     gulp.src('./src/img/icons/*').pipe(gulp.dest('./dist/img/icons'));
 });
 
+gulp.task('copy-vendor', function () {
+    gulp.src('./src/vendor/*').pipe(gulp.dest('./dist/vendor'));
+});
+
 gulp.task('sass', function () {
     return gulp.src('./src/sass/**/*.scss')
         .pipe(sass({
