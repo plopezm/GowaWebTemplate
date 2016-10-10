@@ -1,6 +1,6 @@
-#React bootstrap project
+#Gowa web template
 
-This project is a fast starter reactJS project. It uses gulp, webpack and sass.
+This is a web template for Gowa project
 
 #License
 
