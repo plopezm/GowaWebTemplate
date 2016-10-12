@@ -13,6 +13,7 @@ gulp.task('copy-html', function () {
 gulp.task('copy-images', function () {
     gulp.src('./src/img/*').pipe(gulp.dest('./dist/img'));
     gulp.src('./src/img/icons/*').pipe(gulp.dest('./dist/img/icons'));
+    gulp.src('./src/vendor/*').pipe(gulp.dest('./dist/vendor'));
 });
 
 gulp.task('copy-vendor', function () {
@@ -42,6 +43,7 @@ gulp.task('build', function(cb) {
 
 gulp.task('serve', ['sass', 'copy-html', 'copy-images', 'build'], function () {
     gulp.watch('./src/sass/**/*.scss', ['sass']);
+    gulp.watch('./src/css/**/*.css', ['sass']);
     gulp.watch('./src/app/**/*.jsx', ['build']);
     gulp.watch('./src/index.html', ['copy-html']);
     gulp.watch("./src/*.html").on('change', browserSync.reload);
