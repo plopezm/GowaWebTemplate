@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Request from 'superagent';
-
+import TableRowComponent from './TableRow';
 
 class TableDetailsComponent extends React.Component{
     constructor(props){
@@ -12,13 +12,11 @@ class TableDetailsComponent extends React.Component{
 
     componentWillMount(){
         // Called the first time the component is loaded right before the component is added to the page
-        console.log(this.props);
         var url = "http://localhost:8000/gowa/api/rest/tables/show/"+this.props.tableId;
         Request.get(url).then((response) => {
             this.setState({
                 table: response.body
             });
-            console.log(this.state);
         }).catch((err) => {
             console.log(err);
         });
@@ -41,37 +39,30 @@ class TableDetailsComponent extends React.Component{
     }
 
     render(){
-        if(this.props.table != undefined){
+        if(this.state.table!= undefined){
             return (
                 <table className="ui celled table">
                     <thead>
                         <tr>
-                            {this.props.table.columns.map(function(column, i){
-                                <th>{column}</th>
-                            })}
+                            {
+                                this.state.table.columns.map(function(column, i){
+                                    return <th key={column}>{column}</th>
+                                })
+                            }
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                            <div className="ui ribbon label">First</div>
-                        </td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                    </tr>
-                    <tr>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                    </tr>
-                    <tr>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                    </tr>
+                    {
+                        this.state.table.rows.map(function(row, i){
+                            return (
+                                <TableRowComponent key={i} row={row} />
+                            );
+                        })
+
+                    }
                     </tbody>
                     <tfoot>
-                    <tr><th colSpan="3">
+                    <tr><th colSpan={this.state.table.columns.length}>
                         <div className="ui right floated pagination menu">
                             <a className="icon item">
                                 <i className="left chevron icon"></i>
@@ -90,7 +81,7 @@ class TableDetailsComponent extends React.Component{
 
             );
         }else{
-            return <h1>Details not found</h1>
+            return <h3>Details not found</h3>
         }
     }
 }
