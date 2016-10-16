@@ -31,7 +31,7 @@ class TableElementComponent extends React.Component {
         return (
             <div className="four wide column">
                 <div className="ui header">
-                    <img src="/img/plugin.png"/>
+                    <img src="img/plugin.png"/>
                     <div className="content">
                         <Link to={'/show/'+this.props.table.title}>{this.props.table.title}</Link>
                     </div>

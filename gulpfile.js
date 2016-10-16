@@ -33,7 +33,7 @@ gulp.task('sass', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('build', function(cb) {
+gulp.task('build', ['sass', 'copy-html', 'copy-images'], function(cb) {
     exec('./node_modules/.bin/webpack', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
